@@ -120,6 +120,66 @@
       }
 
       /* Hero Section */
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .hero-image {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-avatar {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 8px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        animation: float 3s ease-in-out infinite;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+      }
+
+      .hero-avatar:hover img {
+        transform: scale(1.05);
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 2rem;
+        }
+        
+        .hero-avatar {
+          width: 200px;
+          height: 200px;
+          font-size: 4rem;
+          margin: 0 auto;
+        }
+      }
+
       .hero {
         min-height: 100vh;
         display: flex;
@@ -419,6 +479,18 @@
         font-weight: 600;
         font-size: 0.9rem;
         white-space: nowrap;
+        top: -15px;
+        z-index: 10;
+      }
+
+      .timeline-date::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        margin-top: 8px;
       }
 
       .job-title {
@@ -582,8 +654,14 @@
         .timeline-item {
           width: 100%;
           left: 0 !important;
-          padding-left: 50px !important;
+          padding-left: 20px !important;
           padding-right: 0 !important;
+          margin-bottom: 2rem;
+        }
+
+        .timeline-content {
+          margin-top: 0;
+          position: relative;
         }
 
         .timeline-content::after {
@@ -591,8 +669,16 @@
         }
 
         .timeline-date {
-          left: 20px !important;
+          left: 50px !important;
           transform: none !important;
+          top: 0 !important;
+          position: relative !important;
+          margin-bottom: 1rem;
+          display: inline-block;
+        }
+
+        .timeline-date::before {
+          display: none;
         }
 
         .skills-grid {
@@ -657,22 +743,29 @@
     <section id="home" class="hero">
       <div class="container">
         <div class="hero-content">
-          <h1>Jithin Raj</h1>
-          <p class="subtitle">Android Software Developer</p>
-          <p class="description">
-            Passionate Android developer with 4+ years of experience crafting
-            exceptional mobile experiences. Specialized in Kotlin, Jetpack
-            Compose, and modern Android architecture patterns.
-          </p>
-          <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">
-              <i class="fas fa-envelope"></i>
-              Get In Touch
-            </a>
-            <a href="#experience" class="btn btn-secondary">
-              <i class="fas fa-user"></i>
-              View My Work
-            </a>
+          <div class="hero-text">
+            <h1>Jithin Raj</h1>
+            <p class="subtitle">Android Software Developer</p>
+            <p class="description">
+              Passionate Android developer with 4+ years of experience crafting
+              exceptional mobile experiences. Specialized in Kotlin, Jetpack
+              Compose, and modern Android architecture patterns.
+            </p>
+            <div class="cta-buttons">
+              <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i>
+                Get In Touch
+              </a>
+              <a href="#experience" class="btn btn-secondary">
+                <i class="fas fa-user"></i>
+                View My Work
+              </a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-avatar">
+              <img src="../Portfoliowebsite2025/img/profile-pic.png" alt="Jithin Raj - Android Developer">
+            </div>
           </div>
         </div>
       </div>
